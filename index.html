@@ -1,288 +1,97 @@
+<!-- 1st download any Html editor-->
+<!--2nd rename the file as i did-->
+<!-- now paste the code and enjoy.. and make sure you do it on desktop mode-->
+<!-- this code is not working on codepen.. i dont know why-->
+
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>💀 Happy Halloween Guys 💀</title>
+  <head>
+    <meta charset="UTF-8">
+    <title>Happy Diwali 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        overflow: hidden;
+      }
+      /* Moon */
+      .moon {
+        position: absolute;
+        top: 80px;
+        left: 70vw;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle at 40% 35%, #fff 80%, #dfecf7 100%);
+        border-radius: 50%;
+        box-shadow:
+          0 0 60px 20px #fff8,
+          0 0 120px 40px #99bbff66,
+          0 0 300px 120px #b0c9f955;
+        z-index: 3;
+      }
+      /* Stars */
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.85;
+        box-shadow:
+          0 0 6px 2px #fff,
+          0 0 24px 8px #6699ff22;
+        z-index: 2;
+        animation: twinkle 2.5s infinite alternate;
+      }
+      @keyframes twinkle {
+        0%,100% { opacity: 0.8; }
+        50% { opacity: 1; }
+        70% { opacity: 0.6; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="moon"></div>
+    <section class="fireworks" id="sec1"></section>
+    <section class="bgi">
+      <div class="golden-text" id="golden-text">
+        <h1>✨Happy Birthday Dear✨<br> Kumkum </br></h1>
+        
+      </div>
+    </section>
+    <section class="content">
+      <img src="logo.png" alt="Logo">
+    </section>
 
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+    <script>
+      // Add 80 random stars
+      for (let i = 0; i < 80; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = 1 + Math.random() * 2.5;
+        star.style.width = star.style.height = size + 'px';
+        star.style.top = (Math.random() * 95) + 'vh';
+        star.style.left = (Math.random() * 98) + 'vw';
+        star.style.animationDuration = (1.4 + Math.random() * 1.6) + 's';
+        document.body.appendChild(star);
+      }
+    </script>
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jquery.fireworks.js"></script>
+    <script>
+      $('.fireworks').fireworks({
+        opacity: 0.9,
+        width: '100%',
+        height: '100%'
+      });
 
-body {
-  background: radial-gradient(circle at center, #000 30%, #0a0a0a 100%);
-  overflow: hidden;
-  color: #fff;
-  font-family: 'Creepster', cursive;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-h2 {
-  font-size: 2rem;
-  color: #ff7518;
-  text-shadow: 0 0 20px #7C8197, 0 0 60px #A6BDC5;
-  margin-bottom: 40px;
-  animation: flicker 2s infinite;
-}
-
-@keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-    opacity: 1;
-    text-shadow: 0 0 20px #ff7518, 0 0 60px red;
-  }
-  20%, 24%, 55% {
-    opacity: 0.4;
-    text-shadow: none;
-  }
-}
-
-/* Skeleton base */
-.skeleton {
-  position: relative;
-  width: 180px;
-  height: 360px;
-  transform-style: preserve-3d;
-  animation: floaty 4s ease-in-out infinite;
-}
-
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* Skull */
-.skull {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle at 30% 30%, #fff, #ccc);
-  border-radius: 50% 50% 45% 45%;
-  transform: translateX(-50%) rotateZ(0deg);
-  box-shadow: inset 0 0 10px #000, 0 0 30px #fff;
-  transition: transform 0.5s ease;
-}
-
-.eye {
-  position: absolute;
-  width: 20px;
-  height: 25px;
-  background: radial-gradient(circle, #ff0000, #440000);
-  border-radius: 50%;
-  top: 30px;
-  box-shadow: 0 0 20px red;
-  animation: eyeGlow 1.5s infinite alternate;
-}
-
-.eye.left { left: 20px; }
-.eye.right { right: 20px; }
-
-@keyframes eyeGlow {
-  from { box-shadow: 0 0 10px red; }
-  to { box-shadow: 0 0 30px red; }
-}
-
-.nose {
-  position: absolute;
-  top: 55px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 12px;
-  height: 14px;
-  background: #000;
-  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-}
-
-.mouth {
-  position: absolute;
-  bottom: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 8px;
-  background: #000;
-  border-radius: 10px;
-}
-
-/* Spine + ribs */
-.spine {
-  position: absolute;
-  top: 100px;
-  left: 50%;
-  width: 10px;
-  height: 120px;
-  background: linear-gradient(to bottom, #eee, #aaa);
-  transform: translateX(-50%);
-  box-shadow: 0 0 15px #fff;
-}
-
-.ribs {
-  position: absolute;
-  top: 110px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.rib {
-  width: 120px;
-  height: 10px;
-  margin: 8px 0;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff, #ddd);
-  box-shadow: 0 0 20px #ff7518;
-}
-
-/* Limbs */
-.limb {
-  position: absolute;
-  width: 14px;
-  height: 80px;
-  background: linear-gradient(to bottom, #fff, #ccc);
-  border-radius: 10px;
-  box-shadow: 0 0 15px #fff;
-  transform-origin: top center;
-}
-
-.arm.left { top: 120px; left: 0; transform: rotate(20deg); }
-.arm.right { top: 120px; right: 0; transform: rotate(-20deg); }
-.leg.left { bottom: 0; left: 55px; transform: rotate(10deg); }
-.leg.right { bottom: 0; right: 55px; transform: rotate(-10deg); }
-
-/* Button */
-button {
-  margin-top: 50px;
-  padding: 15px 30px;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 10px;
-  background: orange;
-  color: black;
-  cursor: pointer;
-  box-shadow: 0 0 10px #6E718E, 0 0 20px #6D82B8;
-  transition: 0.3s;
-  font-family: 'Creepster', cursive;
-}
-
-button:hover {
-  background: red;
-  color: white;
-  box-shadow: 0 0 20px red, 0 0 40px orange;
-}
-
-/* Fog */
-.fog {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, transparent, rgba(255,140,0,0.08));
-  animation: fogMove 20s infinite linear;
-  mix-blend-mode: screen;
-  pointer-events: none;
-  z-index: -1;
-}
-
-@keyframes fogMove {
-  0% { transform: translateX(-20%) translateY(-10%); opacity: 0.3; }
-  50% { transform: translateX(20%) translateY(10%); opacity: 0.6; }
-  100% { transform: translateX(-20%) translateY(-10%); opacity: 0.3; }
-}
-</style>
-</head>
-
-<body>
-  <h2>🎃 Happy Halloween Guys 🎃</h2>
-
-  <div class="skeleton" id="skeleton">
-    <div class="skull" id="skull">
-      <div class="eye left"></div>
-      <div class="eye right"></div>
-      <div class="nose"></div>
-      <div class="mouth"></div>
-    </div>
-
-    <div class="spine"></div>
-    <div class="ribs">
-      <div class="rib"></div>
-      <div class="rib"></div>
-      <div class="rib"></div>
-    </div>
-
-    <div class="limb arm left" id="leftArm"></div>
-    <div class="limb arm right" id="rightArm"></div>
-    <div class="limb leg left"></div>
-    <div class="limb leg right"></div>
-  </div>
-
-  <button id="funButton"> Tap Here for surprise </button>
-
-  <div class="fog"></div>
-
-  <!-- ✅ Fixed single script -->
-  <script>
-  // Skeleton animation
-  const skull = document.getElementById('skull');
-  const leftArm = document.getElementById('leftArm');
-  const rightArm = document.getElementById('rightArm');
-  let angle = 0;
-
-  function animateSkeleton() {
-    angle += 0.03;
-    const headTilt = Math.sin(angle) * 8;
-    const armWave = Math.sin(angle * 2) * 25;
-
-    skull.style.transform = `translateX(-50%) rotate(${headTilt}deg)`;
-    leftArm.style.transform = `rotate(${20 + armWave}deg)`;
-    rightArm.style.transform = `rotate(${-20 - armWave}deg)`;
-
-    requestAnimationFrame(animateSkeleton);
-  }
-  animateSkeleton();
-
-  // Button → Open video page
-  document.getElementById('funButton').addEventListener('click', function() {
-    window.location.href = "video.html";
-  });
-
-  // Check if user watched video
-  function showMessageIfWatched() {
-    if (localStorage.getItem('watchedVideo') === 'yes') {
-      const btn = document.getElementById('funButton');
-      const message = document.createElement('span');
-      message.textContent = "Muh mein aa gaye kya ?";
-      message.style.marginLeft = "15px";
-      message.style.color = "orange";
-      message.style.fontSize = "1.3em";
-      message.style.textShadow = "0 0 10px red";
-      message.style.animation = "glow 2s infinite alternate";
-      btn.insertAdjacentElement('afterend', message);
-
-      localStorage.removeItem('watchedVideo');
-    }
-  }
-
-  window.addEventListener('load', showMessageIfWatched);
-  window.addEventListener('pageshow', showMessageIfWatched);
-
-  // Glowing animation for text
-  const style = document.createElement('style');
-  style.textContent = `
-    @keyframes glow {
-      from { opacity: 0.3; text-shadow: 0 0 5px orange; }
-      to { opacity: 1; text-shadow: 0 0 20px red, 0 0 40px orange; }
-    }`;
-  document.head.appendChild(style);
-  </script>
-</body>
+      setTimeout(() => {
+        const goldenText = document.getElementById("golden-text");
+        goldenText.classList.add("show");
+      }, 6000);
+    </script>
+  </body>
 </html>
