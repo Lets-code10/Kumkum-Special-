@@ -1,0 +1,97 @@
+<!-- 1st download any Html editor-->
+<!--2nd rename the file as i did-->
+<!-- now paste the code and enjoy.. and make sure you do it on desktop mode-->
+<!-- this code is not working on codepen.. i dont know why-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Happy Diwali 2025</title>
+    <link rel="stylesheet" href="diwali.css">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        overflow: hidden;
+      }
+      /* Moon */
+      .moon {
+        position: absolute;
+        top: 80px;
+        left: 70vw;
+        width: 120px;
+        height: 120px;
+        background: radial-gradient(circle at 40% 35%, #fff 80%, #dfecf7 100%);
+        border-radius: 50%;
+        box-shadow:
+          0 0 60px 20px #fff8,
+          0 0 120px 40px #99bbff66,
+          0 0 300px 120px #b0c9f955;
+        z-index: 3;
+      }
+      /* Stars */
+      .star {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.85;
+        box-shadow:
+          0 0 6px 2px #fff,
+          0 0 24px 8px #6699ff22;
+        z-index: 2;
+        animation: twinkle 2.5s infinite alternate;
+      }
+      @keyframes twinkle {
+        0%,100% { opacity: 0.8; }
+        50% { opacity: 1; }
+        70% { opacity: 0.6; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="moon"></div>
+    <section class="fireworks" id="sec1"></section>
+    <section class="bgi">
+      <div class="golden-text" id="golden-text">
+        <h1>✨Happy Birthday Dear✨<br> Kumkum </br></h1>
+        
+      </div>
+    </section>
+    <section class="content">
+      <img src="logo.png" alt="Logo">
+    </section>
+
+    <script>
+      // Add 80 random stars
+      for (let i = 0; i < 80; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        const size = 1 + Math.random() * 2.5;
+        star.style.width = star.style.height = size + 'px';
+        star.style.top = (Math.random() * 95) + 'vh';
+        star.style.left = (Math.random() * 98) + 'vw';
+        star.style.animationDuration = (1.4 + Math.random() * 1.6) + 's';
+        document.body.appendChild(star);
+      }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="jquery.fireworks.js"></script>
+    <script>
+      $('.fireworks').fireworks({
+        opacity: 0.9,
+        width: '100%',
+        height: '100%'
+      });
+
+      setTimeout(() => {
+        const goldenText = document.getElementById("golden-text");
+        goldenText.classList.add("show");
+      }, 6000);
+    </script>
+  </body>
+</html>
